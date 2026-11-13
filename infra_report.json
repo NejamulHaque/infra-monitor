@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-11-13T11:48:23.223982+00:00",
+  "overall_status": "CRITICAL",
+  "endpoints": [
+    {
+      "service": "Portfolio Frontend",
+      "url": "https://nejamulhaque.vercel.app",
+      "status_code": 200,
+      "latency_ms": 305.82,
+      "state": "HEALTHY"
+    },
+    {
+      "service": "Irus AI Health API",
+      "url": "https://irus-ai.onrender.com/health",
+      "status_code": 0,
+      "latency_ms": 10180.02,
+      "state": "DOWN",
+      "error": "The read operation timed out"
+    }
+  ],
+  "disk": {
+    "mount": "/",
+    "total_gb": 228.27,
+    "used_gb": 201.88,
+    "free_gb": 26.39,
+    "used_percent": 88.44,
+    "state": "CRITICAL"
+  },
+  "ssh_security_audit": {
+    "log_path": "/var/log/auth.log",
+    "state": "SKIPPED",
+    "reason": "Log file not present on host (e.g., macOS or CI runner)",
+    "flagged_ips": {}
+  }
+}

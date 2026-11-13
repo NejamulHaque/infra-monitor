@@ -1,0 +1,31 @@
+name: Scheduled Infra & Endpoint Monitor
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run SRE Infrastructure Monitor
+        run: python3 infra_monitor.py
+
+      - name: Upload Monitoring Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: infra-health-report
+          path: infra_report.json
